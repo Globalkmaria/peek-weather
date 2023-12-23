@@ -1,16 +1,14 @@
 import { getCities } from '@/service/weather';
-import Item from './home/City';
+import CityList from './home/CityList';
+
+export const revalidate = 0;
 
 export default async function Home() {
   const cities = await getCities();
 
   return (
     <section>
-      <ul>
-        {cities.map((city, idx) => (
-          <Item key={city.cityInfo.id} city={city} idx={idx} />
-        ))}
-      </ul>
+      <CityList cities={cities} />
     </section>
   );
 }

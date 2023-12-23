@@ -9,8 +9,10 @@ import { City as CityType } from '@/model/city';
 interface Props {
   city: CityType;
   idx: number;
+  time: number;
 }
-function City({ city, idx }: Props) {
+
+function City({ city, idx, time }: Props) {
   const [open, setOpen] = useState(idx !== 0);
 
   const onClick = () => {
@@ -21,7 +23,7 @@ function City({ city, idx }: Props) {
     <li className='border-solid border-black border-b-2 px-6 py-4' onClick={onClick}>
       <div className='flex gap-2 items-end'>
         <h2 className='text-4xl font-bold'>{city.cityInfo.name}</h2>
-        <span>{getTimeWithDay(city.cityInfo.timezone)}</span>
+        <span>{getTimeWithDay(city.cityInfo.timezone, time)}</span>
       </div>
       <div className='flex flex-row gap-2 items-end pt-2'>
         <span className='text-2xl font-semibold'>{city.current.temp} ºC</span>

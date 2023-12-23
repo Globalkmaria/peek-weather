@@ -1,8 +1,8 @@
 import moment from 'moment-timezone';
 
-export const getTimeWithDay = (timezone: string, timestamp?: number) => {
-  const time = timestamp ? moment.unix(timestamp) : moment;
-  return time.tz(timezone).format('LT ddd');
+export const getTimeWithDay = (timezone: string, timestamp: number) => {
+  const time = timestamp ? moment(timestamp) : moment;
+  return time.tz(timezone).format('ddd LT');
 };
 
 export const getDay = (timezone: string, timestamp?: number) => {
