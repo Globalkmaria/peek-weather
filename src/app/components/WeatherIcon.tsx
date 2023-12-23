@@ -13,7 +13,7 @@ function WeatherIcon({ iconId }: Props) {
 
 export default WeatherIcon;
 
-const weatherIcon: { [key in Weathers[number]]: IconType } = {
+const WEATHER_ICON: { [key in Weathers[number]]: IconType } = {
   Thunderstorm: WiLightning,
   Drizzle: WiShowers,
   Rain: WiRain,
@@ -24,12 +24,12 @@ const weatherIcon: { [key in Weathers[number]]: IconType } = {
 };
 
 const getWeatherIcon = (iconId: number): IconType => {
-  if (200 <= iconId && iconId <= 232) return weatherIcon.Thunderstorm;
-  if (300 <= iconId && iconId <= 321) return weatherIcon.Drizzle;
-  if (500 <= iconId && iconId <= 531) return weatherIcon.Rain;
-  if (600 <= iconId && iconId <= 622) return weatherIcon.Snow;
-  if (701 <= iconId && iconId <= 781) return weatherIcon.Mist;
-  if (801 <= iconId && iconId <= 804) return weatherIcon.Clouds;
+  if (200 <= iconId && iconId <= 232) return WEATHER_ICON.Thunderstorm;
+  if (300 <= iconId && iconId <= 321) return WEATHER_ICON.Drizzle;
+  if (500 <= iconId && iconId <= 531) return WEATHER_ICON.Rain;
+  if (600 <= iconId && iconId <= 622) return WEATHER_ICON.Snow;
+  if (701 <= iconId && iconId <= 781) return WEATHER_ICON.Mist;
+  if (801 <= iconId && iconId <= 804) return WEATHER_ICON.Clouds;
 
-  return weatherIcon.Clear;
+  return WEATHER_ICON.Clear;
 };

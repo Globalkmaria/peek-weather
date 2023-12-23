@@ -12,7 +12,7 @@ export async function GET() {
     return Response.json(forecastList);
   } catch (err) {
     const error = new Error('Error fetching cities');
-    console.log(err);
+    console.error(err);
     return Response.json({ data: error, status: 500 });
   }
 }

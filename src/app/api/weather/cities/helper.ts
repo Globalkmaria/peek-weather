@@ -1,12 +1,12 @@
 import { City, CityInfo } from '@/model/city';
 import { CurrentWeather, ForecastOriginal, Weather } from '@/model/weather';
 
-type FormatForecast = {
+interface FormatForecast {
   lat: number;
   lon: number;
   forecast: Weather[];
   current: CurrentWeather;
-};
+}
 
 export const formatForecast = (original: ForecastOriginal): FormatForecast => {
   return {

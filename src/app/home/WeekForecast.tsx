@@ -40,9 +40,9 @@ function WeatherItem({ cityInfo, daily }: WeatherItemProps) {
       </div>
       <WeatherIcon iconId={daily.weather.id} />
       <div className='flex flex-row gap-2 whitespace-nowrap'>
-        <span className='font-semibold'>{Math.round(daily.temp.min)} ºC</span>
+        <span className='font-semibold'>{daily.temp.min} ºC</span>
         <span>/</span>
-        <span className='font-semibold'>{Math.round(daily.temp.max)} ºC</span>
+        <span className='font-semibold'>{daily.temp.max} ºC</span>
       </div>
     </li>
   );
