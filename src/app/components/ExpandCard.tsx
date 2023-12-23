@@ -11,7 +11,7 @@ const ExpandCard = ({ open, children }: ExpandCardProps) => {
   return (
     <div>
       <div className={`grid overflow-hidden ${openClassName}`}>
-        <div className='min-h-0'>{children}</div>
+        <div className='min-h-0 overflow-y-hidden overflow-x-auto'>{children}</div>
       </div>
       <button
         className='flex items-center justify-center w-full text-2xl'
