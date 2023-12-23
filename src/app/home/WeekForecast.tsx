@@ -9,6 +9,7 @@ import WeatherIcon from '../components/WeatherIcon';
 interface WeatherItemProps {
   cityInfo: CityInfo;
   daily: Weather;
+  idx: number;
 }
 
 interface Props {
@@ -21,7 +22,7 @@ function WeekForecast({ open, city }: Props) {
     <ExpandCard open={open}>
       <ul className='flex py-4'>
         {city.forecast.map((daily, idx) => (
-          <WeatherItem key={idx} cityInfo={city.cityInfo} daily={daily} />
+          <WeatherItem key={idx} idx={idx} cityInfo={city.cityInfo} daily={daily} />
         ))}
       </ul>
     </ExpandCard>
@@ -30,9 +31,9 @@ function WeekForecast({ open, city }: Props) {
 
 export default memo(WeekForecast);
 
-function WeatherItem({ cityInfo, daily }: WeatherItemProps) {
+function WeatherItem({ cityInfo, daily, idx }: WeatherItemProps) {
   return (
-    <li className='flex flex-col gap-2 border-r-2 border-black px-6 py-4'>
+    <li className={`flex flex-col gap-2 border-r-2 border-black px-6 py-4 ${idx === 0 ? 'border-l-2' : ''}`}>
       <div className='flex gap-2'>
         <span className='font-bold'>{getDay(cityInfo.timezone, daily.timeStamp)}</span>
         <span>|</span>
