@@ -7724,6 +7724,7 @@ __metadata:
     react: "npm:^18"
     react-dom: "npm:^18"
     react-icons: "npm:^4.12.0"
+    tailwind-scrollbar: "npm:^3.0.5"
     tailwindcss: "npm:^3.3.0"
     typescript: "npm:^5"
   languageName: unknown
@@ -9290,6 +9291,15 @@ __metadata:
   version: 3.2.4
   resolution: "symbol-tree@npm:3.2.4"
   checksum: dfbe201ae09ac6053d163578778c53aa860a784147ecf95705de0cd23f42c851e1be7889241495e95c37cabb058edb1052f141387bef68f705afc8f9dd358509
+  languageName: node
+  linkType: hard
+
+"tailwind-scrollbar@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "tailwind-scrollbar@npm:3.0.5"
+  peerDependencies:
+    tailwindcss: 3.x
+  checksum: cdce9ade4856cd1eccc4ed9b3330aa98952eab8e892ec4cdf5766c185eb75cb0e9bd7eb057ecbe585169be0ef3a167cc83e43d89cd48cd0ff898da7cea459d75
   languageName: node
   linkType: hard
 

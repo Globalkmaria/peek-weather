@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={`bg-primary`}>
+      <body className={`bg-primary scrollbar scrollbar-thin scrollbar-thumb-black scrollbar-track-primary`}>
         <Header />
         <main>{children}</main>
       </body>
