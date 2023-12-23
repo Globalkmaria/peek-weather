@@ -1,8 +1,10 @@
-import ExpandCard from '../components/ExpandCard';
-import WeatherIcon from '../components/WeatherIcon';
+import { memo } from 'react';
+
 import { getDay } from '@/utils/time';
 import { City, CityInfo } from '@/model/city';
 import { Weather } from '@/model/weather';
+import ExpandCard from '../components/ExpandCard';
+import WeatherIcon from '../components/WeatherIcon';
 
 interface WeatherItemProps {
   cityInfo: CityInfo;
@@ -26,7 +28,7 @@ function WeekForecast({ open, city }: Props) {
   );
 }
 
-export default WeekForecast;
+export default memo(WeekForecast);
 
 function WeatherItem({ cityInfo, daily }: WeatherItemProps) {
   return (

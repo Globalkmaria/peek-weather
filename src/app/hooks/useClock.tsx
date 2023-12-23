@@ -8,7 +8,7 @@ function useClock() {
   useEffect(() => {
     const timerID = setInterval(() => {
       setCurrentTime(Date.now());
-    }, 1000);
+    }, 60000);
 
     return () => clearInterval(timerID);
   }, []);
