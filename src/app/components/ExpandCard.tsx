@@ -20,7 +20,7 @@ const ExpandCard = ({ open, children }: ExpandCardProps) => {
         type='button'
         aria-label={`expand ${open ? 'close' : 'open'} button`}
       >
-        {open ? <MdExpandLess /> : <MdExpandMore />}
+        {open ? <MdExpandMore /> : <MdExpandLess />}
       </button>
     </div>
   );
