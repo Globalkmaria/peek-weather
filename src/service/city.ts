@@ -3,7 +3,8 @@ import { cache } from 'react';
 import { client } from './sanity';
 
 export const getCitiesInfo = cache(async () => {
-  return client.fetch(`*[_type == "city"][]
+  return client.fetch(
+    `*[_type == "city"][]
   |order(priority asc){
     "id": _id,
     timezone, 
@@ -12,5 +13,9 @@ export const getCitiesInfo = cache(async () => {
     lon,
     lat,
     priority,
-  }`);
+  }`,
+    {
+      next: { revalidate: 3600 },
+    },
+  );
 });
