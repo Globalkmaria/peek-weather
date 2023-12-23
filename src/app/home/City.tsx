@@ -7,6 +7,7 @@ import { getTimeWithDay } from '@/utils/time';
 import WeekForecast from './WeekForecast';
 import { City as CityType } from '@/model/city';
 import useHandleDrag from '../hooks/useHandleDrag';
+import WeatherIcon from '../components/WeatherIcon';
 
 interface Props {
   city: CityType;
@@ -35,13 +36,18 @@ function City({ city, idx, time, moveItem }: Props) {
       <div className='flex gap-6 items-center w-full'>
         <MdOutlineDragHandle />
         <div className='w-full'>
-          <div className='flex gap-2 items-end'>
-            <h2 className='text-4xl font-bold'>{city.cityInfo.name}</h2>
-            <span>{getTimeWithDay(city.cityInfo.timezone, time)}</span>
-          </div>
-          <div className='flex flex-row gap-2 items-end pt-2'>
-            <span className='text-2xl font-semibold'>{city.current.temp} ºC</span>
-            <span>{city.current.weather.description}</span>
+          <div className='flex gap-2 flex-col-reverse  xs:flex-row'>
+            <WeatherIcon iconId={city.current.weather.id} />
+            <div className=''>
+              <div className='flex gap-2 items-end'>
+                <h2 className='text-4xl font-bold'>{city.cityInfo.name}</h2>
+                <span>{getTimeWithDay(city.cityInfo.timezone, time)}</span>
+              </div>
+              <div className='flex flex-row gap-2 items-end pt-2'>
+                <span className='text-2xl font-semibold'>{city.current.temp} ºC</span>
+                <span>{city.current.weather.description}</span>
+              </div>
+            </div>
           </div>
           <WeekForecast open={open} city={city} />
         </div>

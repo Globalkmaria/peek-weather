@@ -26,6 +26,9 @@ const config: Config = {
         'open-scroll': 'open-scroll 0.2s ease-in-out forwards',
         'close-scroll': 'close-scroll 0.2s ease-in-out forwards',
       },
+      screens: {
+        xs: '480px',
+      },
     },
   },
   plugins: [require('tailwind-scrollbar')({ nocompatible: true })],
