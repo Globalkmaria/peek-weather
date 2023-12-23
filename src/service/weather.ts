@@ -24,12 +24,9 @@ export async function fetchMultipleCitiesWeather(cities: CityInfo[]) {
 }
 
 export async function getCities(): Promise<City[]> {
-  // TODO api
-  const res = await fetch('http://localhost:3000/api/weather/cities', {
+  const res = await fetch(`${process.env.NEXT_URL}/api/weather/cities`, {
     next: { revalidate: 3600 },
   });
-
-  // TODO handle error
 
   const data = await res.json();
   return data;
