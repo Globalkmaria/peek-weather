@@ -1,5 +1,6 @@
 import { City, CityInfo } from '@/model/city';
 import { ForecastOriginal } from '@/model/weather';
+import { BASE_URL } from '@/utils/baseUrl';
 
 export const fetchLocationWeather = async (lon: number, lat: number) => {
   return fetch(
@@ -24,7 +25,7 @@ export async function fetchMultipleCitiesWeather(cities: CityInfo[]) {
 }
 
 export async function getCities(): Promise<City[]> {
-  const res = await fetch(`${process.env.NEXT_URL}/api/weather/cities`, {
+  const res = await fetch(`${BASE_URL}/api/weather/cities`, {
     next: { revalidate: 3600 },
   });
 
