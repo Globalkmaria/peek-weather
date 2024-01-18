@@ -5,7 +5,6 @@ import { BASE_URL } from '@/utils/baseUrl';
 export const fetchLocationWeather = async (lon: number, lat: number) => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely,alerts&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_API_TOKEN}`,
-    { next: { revalidate: 3600 } },
   );
 };
 

@@ -14,8 +14,5 @@ export const getCitiesInfo = cache(async () => {
     lat,
     priority,
   }`,
-    {
-      next: { revalidate: 3600 },
-    },
   );
 });
