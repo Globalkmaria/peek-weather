@@ -8,7 +8,7 @@ export async function GET() {
     const citiesInfo: CityInfo[] = await getCitiesInfo();
     const forecastListOriginal = await fetchMultipleCitiesWeather(citiesInfo);
     const forecastList = formatForecastList(citiesInfo, forecastListOriginal);
-    console.log('forecastList', forecastList[0]);
+
     return Response.json(forecastList);
   } catch (err) {
     const error = new Error('Error fetching cities');
