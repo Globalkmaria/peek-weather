@@ -1,13 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
+
 import { MdOutlineDragHandle } from 'react-icons/md';
 
-import { getTimeWithDay } from '@/utils/time';
 import WeekForecast from './WeekForecast';
 import { City as CityType } from '@/model/city';
 import useHandleDrag from '../hooks/useHandleDrag';
 import WeatherIcon from '../components/WeatherIcon';
+import { TimeWithDaySkeleton } from './TimeWithDay';
+
+const TimeWithDay = dynamic(() => import('./TimeWithDay'), { ssr: false, loading: () => <TimeWithDaySkeleton /> });
 
 interface Props {
   city: CityType;
@@ -41,7 +45,7 @@ function City({ city, idx, time, moveItem }: Props) {
             <div className=''>
               <div className='flex gap-2 items-end'>
                 <h2 className='text-4xl font-bold'>{city.cityInfo.name}</h2>
-                <span>{getTimeWithDay(city.cityInfo.timezone, time)}</span>
+                <TimeWithDay city={city} time={time} />
               </div>
               <div className='flex flex-row gap-2 items-end pt-2'>
                 <span className='text-2xl font-semibold'>{city.current.temp} ºC</span>
