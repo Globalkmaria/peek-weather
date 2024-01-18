@@ -5,4 +5,5 @@ export const client = createClient({
   dataset: process.env.NEXT_PUBLIC_SANITY_STUDIO_API_DATASET,
   apiVersion: process.env.NEXT_PUBLIC_SANITY_STUDIO_VERSION,
   token: process.env.NEXT_PUBLIC_SANITY_STUDIO_API_TOKEN,
+  useCdn: true,
 });
