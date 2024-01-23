@@ -1,5 +1,6 @@
 import { City, CityInfo } from '@/model/city';
 import { CurrentWeather, ForecastOriginal, Weather } from '@/model/weather';
+import { fetchLocationWeather } from './weather';
 
 interface FormatForecast {
   lat: number;
@@ -49,3 +50,18 @@ export const formatForecastList = (citiesInfo: CityInfo[], forecastList: Forecas
     return result;
   }, []);
 };
+
+export async function fetchMultipleCitiesWeather(cities: CityInfo[]) {
+  const weatherPromises = cities.map(city => fetchLocationWeather(city.lon, city.lat));
+
+  const responses = await Promise.all(weatherPromises);
+  const succeedResponses = responses.reduce<Promise<ForecastOriginal>[]>((acc, res) => {
+    if (res.ok) {
+      const data = res.json() as Promise<ForecastOriginal>;
+      acc.push(data);
+    }
+    return acc;
+  }, []);
+
+  return await Promise.all(succeedResponses);
+}
